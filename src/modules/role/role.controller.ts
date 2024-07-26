@@ -1,5 +1,3 @@
-
-import { FastifyReply, FastifyRequest } from "fastify";
 import {RoleSchema} from "../../models/role.schema";
 import RoleService from "./role.service";
 import nameSchema, { NameSchema } from "./dto/add";
@@ -14,7 +12,7 @@ export default class RoleController {
 
     public getAll = async (request: Request, response: Response, next: NextFunction) => {
         
-        const roles = await RoleSchema.find();
+        const roles = await this.Service.GetAll();
         return response.success(roles,"Roles encontrados correctamente");
     }
     
